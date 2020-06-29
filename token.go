@@ -7,10 +7,16 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/robertkrimen/otto"
 )
+
+type Parser struct {
+	vm *otto.Otto
+	sync.Mutex
+}
 
 var vm = otto.New()
 
